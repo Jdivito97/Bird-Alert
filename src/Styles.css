@@ -94,6 +94,26 @@ a {
 
 /* Dropdown Menu */
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #484a4d;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #909090;
+  border-radius: 35%;
+  outline: 2px solid #909090;
+  outline-offset: -2px;
+  border: 0.1px solid #85888d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #909090;
+}
+
 .dropdown {
   position: absolute;
   height: 300px !important;

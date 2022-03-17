@@ -4,11 +4,18 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import LanguageIcon from "@mui/icons-material/Language";
 import SearchIcon from "@mui/icons-material/Search";
+import { FaCanadianMapleLeaf } from "react-icons/fa";
+import { VscStarFull } from "react-icons/vsc";
+import America from "./America";
 
 function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
+
+  function CreateMenu(usState) {
+    return <DropdownItem name={usState.title} />;
+  }
 
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
@@ -45,16 +52,16 @@ function DropdownMenu() {
         <div className="menu">
           <DropdownItem leftIcon={<LanguageIcon />}>Select Region</DropdownItem>
           <DropdownItem
-            leftIcon="🦅"
+            leftIcon={<VscStarFull />}
             rightIcon={<ChevronRightIcon />}
-            goToMenu="settings"
+            goToMenu="USA"
           >
             United States
           </DropdownItem>
           <DropdownItem
-            leftIcon="🍁"
+            leftIcon={<FaCanadianMapleLeaf />}
             rightIcon={<ChevronRightIcon />}
-            goToMenu="animals"
+            goToMenu="CND"
           >
             Canada
           </DropdownItem>
@@ -62,7 +69,7 @@ function DropdownMenu() {
       </CSSTransition>
 
       <CSSTransition
-        in={activeMenu === "settings"}
+        in={activeMenu === "USA"}
         timeout={500}
         classNames="menu-secondary"
         unmountOnExit
@@ -75,6 +82,7 @@ function DropdownMenu() {
           >
             <h2>Return to region select</h2>
           </DropdownItem>
+          {America.map(CreateMenu)}
           <DropdownItem leftIcon={<SearchIcon />}>Alabama</DropdownItem>
           <DropdownItem leftIcon={<SearchIcon />}>Alaska</DropdownItem>
           <DropdownItem leftIcon={<SearchIcon />}>Arizona</DropdownItem>
@@ -134,7 +142,7 @@ function DropdownMenu() {
       </CSSTransition>
 
       <CSSTransition
-        in={activeMenu === "animals"}
+        in={activeMenu === "CND"}
         timeout={500}
         classNames="menu-secondary"
         unmountOnExit
