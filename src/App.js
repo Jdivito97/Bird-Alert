@@ -1,11 +1,18 @@
 import LandingPage from "./LandingPage";
 import "./Styles.css";
-import Header from "./Header";
+import Navbar from "./NavBar";
+import NavItem from "./NavItem";
+import DropdownMenu from "./DropdownMenu";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Navbar>
+        <NavItem icon={<TravelExploreIcon />}>
+          <DropdownMenu />
+        </NavItem>
+      </Navbar>
       <LandingPage />
     </div>
   );
