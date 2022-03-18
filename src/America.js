@@ -7,7 +7,7 @@ const America = [
 
   {
     id: 2,
-    name: "Alaska",
+    title: "Alaska",
     value: "AK",
   },
   {

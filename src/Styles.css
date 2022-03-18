@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #151616;
+  background: #ecefd8;
   background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
   font-family: roboto;
   -webkit-font-smoothing: antialiased;
@@ -29,7 +29,7 @@ ul {
 }
 
 a {
-  color: var(--text-color);
+  color: #393939;
   text-decoration: none;
 }
 
@@ -38,7 +38,7 @@ a {
 /* <nav> */
 .navbar {
   height: var(--nav-size);
-  background-color: var(--bg);
+  background-color: #849561;
   padding: 0 1rem;
   border-bottom: var(--border);
 }
@@ -46,7 +46,7 @@ a {
 /* <ul> */
 
 .navbar-nav h1 {
-  color: #dadce1;
+  color: #525357;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 100;
@@ -72,7 +72,7 @@ a {
   --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);
-  background-color: #484a4d;
+  background-color: #849561;
   border-radius: 50%;
   padding: 5px;
   margin: 2px;
@@ -87,7 +87,7 @@ a {
 }
 
 .icon-button svg {
-  fill: var(--text-color);
+  fill: #eed690;
   width: 20px;
   height: 20px;
 }
@@ -95,19 +95,24 @@ a {
 /* Dropdown Menu */
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 3px;
+  height: 280px;
 }
 
 ::-webkit-scrollbar-track-piece {
   background-color: #484a4d;
+  height: auto;
+  border-radius: 25%;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #909090;
-  border-radius: 35%;
+  border-radius: 15%;
+  height: 280px;
+  border-style: ridge;
   outline: 2px solid #909090;
   outline-offset: -2px;
-  border: 0.1px solid #85888d;
+  border: 0.7px solid #909090;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -116,12 +121,12 @@ a {
 
 .dropdown {
   position: absolute;
-  height: 300px !important;
+  height: 300px;
   overflow-y: scroll !important;
   top: 58px;
   width: 300px;
   transform: translateX(-45%);
-  background-color: var(--bg);
+  background-color: #849561;
   border: var(--border);
   border-radius: var(--border-radius);
   padding: 1rem;
@@ -177,6 +182,7 @@ a {
 
 .menu-secondary-enter {
   transform: translateX(110%);
+  height: 550px !important;
 }
 .menu-secondary-enter-active {
   transform: translateX(0%);
