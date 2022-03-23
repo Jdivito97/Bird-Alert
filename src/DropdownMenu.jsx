@@ -2,29 +2,18 @@ import React, { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import LanguageIcon from "@mui/icons-material/Language";
 import SearchIcon from "@mui/icons-material/Search";
 import { FaCanadianMapleLeaf } from "react-icons/fa";
 import { VscStarFull } from "react-icons/vsc";
 import { GiWorld } from "react-icons/gi";
 import America from "./America";
 import Canada from "./Canada";
+import DropdownItem from "./DropdownItem";
 
 function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
-
-  function CreateMenu(state) {
-    console.log("States", state);
-    return (
-      <DropdownItem
-        key={state.id}
-        leftIcon={<SearchIcon />}
-        title={state.title}
-      />
-    );
-  }
 
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
@@ -33,21 +22,6 @@ function DropdownMenu() {
   function calcHeight(el) {
     const height = el.offsetHeight;
     setMenuHeight(height);
-  }
-
-  function DropdownItem(props) {
-    console.log("props", props);
-    return (
-      <a
-        href="#"
-        className="menu-item"
-        onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
-      >
-        <span className="icon-button">{props.leftIcon}</span>
-        {props.title}
-        <span className="icon-right">{props.rightIcon}</span>
-      </a>
-    );
   }
 
   return (
@@ -63,21 +37,24 @@ function DropdownMenu() {
           <DropdownItem
             leftIcon={<GiWorld />}
             className="regionSelect"
-            title="Select Region"
+            title="Select your region"
           ></DropdownItem>
           <DropdownItem
-            value="US"
             leftIcon={<VscStarFull />}
             rightIcon={<ChevronRightIcon />}
             goToMenu="USA"
+            value=""
             title="United States"
+            setActiveMenu={setActiveMenu}
           />
           <DropdownItem
-            value="CA"
+            className="Canada"
             leftIcon={<FaCanadianMapleLeaf />}
             rightIcon={<ChevronRightIcon />}
+            value=""
             goToMenu="CND"
             title="Canada"
+            setActiveMenu={setActiveMenu}
           />
         </div>
       </CSSTransition>
@@ -94,8 +71,17 @@ function DropdownMenu() {
             goToMenu="main"
             leftIcon={<KeyboardDoubleArrowLeftIcon />}
             title="Go back"
+            value=""
+            setActiveMenu={setActiveMenu}
           ></DropdownItem>
-          {America.map(CreateMenu)}
+          {America.map((obj) => (
+            <DropdownItem
+              key={obj.id}
+              leftIcon={<SearchIcon />}
+              title={obj.title}
+              value={obj.value}
+            />
+          ))}
         </div>
       </CSSTransition>
 
@@ -111,8 +97,17 @@ function DropdownMenu() {
             goToMenu="main"
             leftIcon={<KeyboardDoubleArrowLeftIcon />}
             title="Go back"
+            value=""
+            setActiveMenu={setActiveMenu}
           ></DropdownItem>
-          {Canada.map(CreateMenu)}
+          {Canada.map((obj) => (
+            <DropdownItem
+              key={obj.id}
+              leftIcon={<SearchIcon />}
+              title={obj.title}
+              value={obj.value}
+            />
+          ))}
         </div>
       </CSSTransition>
     </div>

@@ -1,25 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
+import { RegionContext } from "./contexts/region.context";
 
 function LandingPage() {
   //   const [species, setSpecies] = useState({});
+  const { region } = useContext(RegionContext);
+  //
 
-  //   function handleClick(e) {
-  //     let birdData = {
-  //       method: "get",
-  //       url: "https://api.ebird.org/v2/data/obs/geo/recent/notable?lat=30.3&lng=-94.32",
-  //       headers: { "X-eBirdApiToken": "uakosadgnlqk" },
-  //     };
+  let birdData = {
+    method: "get",
+    url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full`,
+    headers: { "X-eBirdApiToken": "uakosadgnlqk" },
+  };
 
-  //     console.log("logged");
-  //     axios(birdData)
-  //       .then(function (response) {
-  //         setSpecies(response.data);
-  //         console.log(response.data);
-  //       })
-  //       .catch(function (error) {
-  //         console.log(error);
-  //       });
+  axios(birdData)
+    .then(function (response) {
+      // setSpecies(response.data);
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
   //     let birdPic = {
   //       method: "GET",
@@ -43,15 +44,13 @@ function LandingPage() {
   //   }
 
   return (
-    // <div className="birdCard">
-    //   {console.log("has been logged", species[0].comName)}
-    //   {/* <h1>{species[0].comName}</h1>
-    //   <h5>{species[0].sciName}</h5> */}
-    //   {/* <button onClick={handleClick} type="submit">
-    //     >
-    //   </button> */}
-    // </div>
-    <h1>hello everybirdy</h1>
+    <div className="greetingCard">
+      <h1>Welcome to Bird-Alert</h1>
+
+      <p>
+        Select a region to see recent notable species observations in a region
+      </p>
+    </div>
   );
 }
 
