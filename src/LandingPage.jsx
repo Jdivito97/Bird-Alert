@@ -1,26 +1,30 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { RegionContext } from "./contexts/region.context";
 
 function LandingPage() {
-  //   const [species, setSpecies] = useState({});
+  const [species, setSpecies] = useState({});
   const { region } = useContext(RegionContext);
-  //
 
-  let birdData = {
-    method: "get",
-    url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full`,
-    headers: { "X-eBirdApiToken": "uakosadgnlqk" },
-  };
+  // API call is currently lagging on click behind...
+  useEffect(() => {
+    let birdData = {
+      method: "get",
+      url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full`,
+      headers: { "X-eBirdApiToken": "uakosadgnlqk" },
+    };
 
-  axios(birdData)
-    .then(function (response) {
-      // setSpecies(response.data);
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    axios(birdData)
+      .then(function (response) {
+        setSpecies(response.data);
+        console.log("species data", species);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [region]);
+
+  console.log("Returned Region", region);
 
   //     let birdPic = {
   //       method: "GET",
@@ -44,13 +48,21 @@ function LandingPage() {
   //   }
 
   return (
-    <div className="greetingCard">
-      <h1>Welcome to Bird-Alert</h1>
+    <>
+      <div className="greetingCard">
+        <h1>Welcome to Bird-Alert</h1>
+        <p>Select a region to see recent notable species observations</p>
+      </div>
 
-      <p>
-        Select a region to see recent notable species observations in a region
-      </p>
-    </div>
+      {/* this div will ocassionally remove all divs and navbar features at seemingly random times unsure of cause if this happens comment it out and refresh */}
+
+      {/* <div className="birdCard1">
+        <h1>{species[0].comName}</h1>
+        <h5>
+          <em>{species[0].sciName}</em>
+        </h5>
+      </div> */}
+    </>
   );
 }
 

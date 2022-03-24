@@ -8,9 +8,7 @@ function DropdownItem(props) {
     setRegion(props.value);
   };
 
-  useEffect(() => {
-    console.log("Effect", [region]);
-  }, [region]);
+  useEffect(() => {}, [region]);
 
   let ExecuteAnimation = () =>
     props.goToMenu && props.setActiveMenu(props.goToMenu);
