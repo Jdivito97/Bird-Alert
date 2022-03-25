@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { RegionContext } from "./contexts/region.context";
+import { RegionContext } from "../contexts/region.context";
 
 function DropdownItem(props) {
   const { region, setRegion } = useContext(RegionContext);

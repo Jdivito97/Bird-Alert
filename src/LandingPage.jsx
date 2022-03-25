@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { RegionContext } from "./contexts/region.context";
+import BirdCard from "./BirdCard";
 
 function LandingPage() {
   const [species, setSpecies] = useState({});
   const { region } = useContext(RegionContext);
 
-  // API call is currently lagging on click behind...
   useEffect(() => {
     let birdData = {
       method: "get",
-      url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full`,
+      url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full&maxResults=30`,
       headers: { "X-eBirdApiToken": "uakosadgnlqk" },
     };
 
@@ -49,19 +49,16 @@ function LandingPage() {
 
   return (
     <>
-      <div className="greetingCard">
-        <h1>Welcome to Bird-Alert</h1>
-        <p>Select a region to see recent notable species observations</p>
+      <div>
+        {species.length > 0 ? (
+          <BirdCard species={species} />
+        ) : (
+          <div className="greetingCard">
+            <h1>Welcome to Bird-Alert</h1>
+            <p>Select a region to see recent notable species observations</p>
+          </div>
+        )}
       </div>
-
-      {/* this div will ocassionally remove all divs and navbar features at seemingly random times unsure of cause if this happens comment it out and refresh */}
-
-      {/* <div className="birdCard1">
-        <h1>{species[0].comName}</h1>
-        <h5>
-          <em>{species[0].sciName}</em>
-        </h5>
-      </div> */}
     </>
   );
 }
