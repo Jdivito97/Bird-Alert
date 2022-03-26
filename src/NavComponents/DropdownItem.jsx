@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { RegionContext } from "../contexts/region.context";
 
 function DropdownItem(props) {
@@ -15,7 +15,7 @@ function DropdownItem(props) {
 
   return (
     <div
-      className="menu-item"
+      className={"menu-item"}
       onClick={(e) => {
         GrabValue();
         ExecuteAnimation();

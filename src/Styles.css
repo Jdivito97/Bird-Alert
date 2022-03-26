@@ -1,15 +1,14 @@
 body {
   margin: 0;
   background: #eff7d3;
-  background-image: url("https://wallpaperaccess.com/full/773426.jpg");
-  font-family: roboto;
+  background-image: url("https://images.hdqwalls.com/download/aerial-view-of-trees-4k-zy-1440x900.jpg");
+  font-family: "Hind", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "Hind", sans-serif;
 }
 
 :root {
@@ -41,6 +40,7 @@ a {
   background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
   background-color: #849561;
   padding: 0 1rem;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   border-bottom: var(--border);
 }
 
@@ -53,7 +53,7 @@ a {
   bottom: 20px;
 
   color: #535a3b;
-  font-family: "M PLUS Rounded 1c", sans-serif;
+
   font-weight: 550;
 }
 
@@ -135,10 +135,11 @@ a {
   background-color: #849561;
   background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
   border: var(--border);
-  border-radius: var(--border-radius);
+  border-radius: 8px 0px 0px 8px;
   padding: 1rem;
   overflow: hidden;
   transition: height var(--speed) ease;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .menu {
@@ -147,8 +148,9 @@ a {
 
 .menu-item {
   height: 50px;
-  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 700;
   display: flex;
+  color: #535a3b;
   align-items: center;
   border-radius: var(--border-radius);
   transition: background var(--speed);
@@ -207,8 +209,6 @@ a {
 
 .greetingCard {
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 100;
   right: 300px;
   background: #ecefd8;
@@ -223,7 +223,6 @@ a {
 }
 
 .greetingCard h1 {
-  font-family: "M PLUS Rounded 1c", sans-serif;
   font-weight: 200;
   color: #535a3b;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
@@ -231,41 +230,95 @@ a {
 .greetingCard p {
   position: relative;
   bottom: 20px;
-  font-family: "M PLUS Rounded 1c", sans-serif;
+
   font-weight: 200;
   font-size: 1rem;
   color: #535a3b;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.birdCard {
+.birdImg {
+  display: inline-block;
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 100;
-  right: 300px;
+  font-weight: 600;
+  color: #535a3b;
+  top: 0px;
   background: #ecefd8;
-  height: 100px;
-  width: 450px;
-  margin: 30px auto 10px auto;
+  height: 400px;
+  width: 425px;
+  margin: 0px 4px 4px 20px;
   padding: 10px;
   border-radius: 7px;
   background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.birdImg img {
+  display: flex;
+  justify-content: center;
+  border-radius: 7px;
+  height: 90%;
+  width: 90%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .birdCard1 {
+  display: inline-block;
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: 100;
-  right: 300px;
+  font-weight: 600;
+  color: #535a3b;
+  top: 10px;
   background: #ecefd8;
-  height: 100px;
-  width: 450px;
-  margin: 30px auto 10px auto;
+  height: 135px;
+  width: 425px;
+  margin: 20px 4px 4px 20px;
   padding: 10px;
   border-radius: 7px;
   background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
-
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.birdCard1 h1 {
+  position: relative;
+
+  bottom: 30px;
+  font-weight: 500;
+  color: #535a3b;
+}
+
+.birdCard1 p {
+  position: relative;
+  bottom: 55px;
+
+  font-weight: 600;
+  color: #535a3b;
+}
+
+.birdCard1 h5 {
+  font-size: 1rem;
+  position: relative;
+  bottom: 75px;
+
+  font-weight: 600;
+  color: #535a3b;
+}
+
+.birdCard1 a {
+  text-decoration: underline;
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: 0px;
+  left: 295px;
+
+  font-weight: 700;
+  color: #535a3b;
+}
+
+.birdCard1 a:hover {
+  color: #4d96ff;
 }

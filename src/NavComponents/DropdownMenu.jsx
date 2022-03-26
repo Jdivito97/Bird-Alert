@@ -13,6 +13,7 @@ import DropdownItem from "../NavComponents/DropdownItem";
 function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
+
   const dropdownRef = useRef(null);
 
   useEffect(() => {
