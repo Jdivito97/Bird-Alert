@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
+import "./Navbar.css";
 
 let useClickOutside = (handler) => {
   let domNode = useRef();
 
   useEffect(() => {
     let clickHandler = (e) => {
-      console.log(e);
+      // console.log(e);
       if (!domNode.current.contains(e.target)) {
         handler();
       }

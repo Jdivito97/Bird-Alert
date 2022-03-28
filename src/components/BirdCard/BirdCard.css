@@ -1,0 +1,84 @@
+.Conatiner {
+  display: flex;
+  background: pink;
+  justify-content: center;
+}
+
+.birdImg {
+  position: sticky;
+  top: 0px;
+  background: #ecefd8;
+  max-height: 500px;
+  min-height: 400px;
+  width: 30.5%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 7px;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.birdImg img {
+  border-radius: 7px;
+  height: 95%;
+  width: 95%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.birdCard {
+  overflow: hidden;
+  font-weight: 600;
+  color: #535a3b;
+  top: 10px;
+  background: #ecefd8;
+  height: 160px;
+  width: 30.5%;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 7px;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.birdCard h1 {
+  font-size: 200%;
+
+  bottom: 113px;
+  font-weight: 500;
+  color: #535a3b;
+}
+
+.birdCard p {
+  bottom: 100px;
+
+  font-weight: 600;
+  color: #535a3b;
+}
+
+.birdCard h5 {
+  font-size: 100%;
+
+  bottom: 30px;
+
+  font-weight: 600;
+  color: #535a3b;
+}
+
+.birdCard a {
+  text-decoration: underline;
+  font-size: 0.7rem;
+  bottom: 0px;
+  left: 295px;
+
+  font-weight: 700;
+  color: #535a3b;
+}
+
+.birdCard a:hover {
+  color: #4d96ff;
+}

@@ -1,0 +1,107 @@
+/* Dropdown Menu */
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 280px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #cedcc3;
+  height: auto;
+  border-radius: 25%;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #eff7d3;
+  border-radius: 15%;
+  height: 280px;
+  border-style: ridge;
+  outline: 2px solid #eff7d3;
+  outline-offset: -2px;
+  border: 0.7px solid #eff7d3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #eff7d3;
+}
+
+.dropdown {
+  position: absolute;
+  height: 300px;
+  overflow-y: scroll !important;
+  top: 58px;
+  width: 300px;
+  transform: translateX(-45%);
+  background-color: #849561;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  border: var(--border);
+  border-radius: 8px 0px 0px 8px;
+  padding: 1rem;
+  overflow: hidden;
+  transition: height var(--speed) ease;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu-item {
+  height: 50px;
+  font-weight: 700;
+  display: flex;
+  color: #535a3b;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  padding: 0.5rem;
+}
+
+.menu-item .icon-button {
+  margin-right: 0.5rem;
+}
+
+.menu-item .icon-button:hover {
+  filter: none;
+}
+
+.menu-item:hover {
+  background-color: #cedcc3;
+}
+
+.icon-right {
+  margin-left: auto;
+}
+
+/* CSSTransition classes  */
+.menu-primary-enter {
+  position: absolute;
+  transform: translateX(-110%);
+}
+.menu-primary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-primary-exit {
+  position: absolute;
+}
+.menu-primary-exit-active {
+  transform: translateX(-110%);
+  transition: all var(--speed) ease;
+}
+
+.menu-secondary-enter {
+  transform: translateX(110%);
+  height: 550px !important;
+}
+.menu-secondary-enter-active {
+  transform: translateX(0%);
+  transition: all var(--speed) ease;
+}
+.menu-secondary-exit {
+}
+.menu-secondary-exit-active {
+  transform: translateX(110%);
+  transition: all var(--speed) ease;
+}

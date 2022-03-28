@@ -6,9 +6,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import { FaCanadianMapleLeaf } from "react-icons/fa";
 import { VscStarFull } from "react-icons/vsc";
 import { GiWorld } from "react-icons/gi";
-import America from "../RegionComponents/America";
-import Canada from "../RegionComponents/Canada";
-import DropdownItem from "../NavComponents/DropdownItem";
+import America from "../../RegionComponents/America";
+import Canada from "../../RegionComponents/Canada";
+import DropdownItem from "./DropdownItem";
+import "./DropdownMenu.css";
 
 function DropdownMenu() {
   const [activeMenu, setActiveMenu] = useState("main");

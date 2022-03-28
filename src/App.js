@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import LandingPage from "./LandingPage";
-import "./Styles.css";
-import Navbar from "./NavComponents/NavBar";
-import NavItem from "./NavComponents/NavItem";
-import DropdownMenu from "./NavComponents/DropdownMenu";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import "./App.css";
+import Navbar from "./components/Navbar/NavBar";
+import NavItem from "./components/Navbar/NavItem";
+import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import { RegionContext } from "./contexts/region.context";
 
