@@ -3,35 +3,47 @@ import axios from "axios";
 import { RegionContext } from "../../contexts/region.context";
 import "./BirdCard.css";
 
-const BirdCard = (props) => {
+const BirdCard = (uniqueBird) => {
+  const {
+    comName,
+    sciName,
+    quantity,
+    observer,
+    date,
+    time,
+    country,
+    county,
+    state,
+    link,
+    image,
+  } = uniqueBird;
+  console.log("image link", { image });
   return (
     <>
-      <div className="Container">
-        {" "}
-        <h1>hi timmy</h1>
+      {/* <div className="Container"> */}
+      <div>
+        <div className="birdImg">
+          <img src={image} alt="above species"></img>
+        </div>
         <div className="birdCard">
           <h1>
-            {" "}
-            <strong>{props.comName}</strong>
+            <strong>{comName}</strong>
           </h1>
           <p>
-            <em>{props.sciName}</em>
+            <em>{sciName}</em>
           </p>
           <h5>
-            {props.quantity}{" "}
-            {props.quantity > 1 ? "individuals were" : "individual was"}{" "}
-            observed by {props.observer} on {props.date} at {props.time} in{" "}
-            {props.county}
-            {props.country === "CA" ? "," : " County"} {props.state}.
+            {quantity} {quantity > 1 ? "individuals were" : "individual was"}{" "}
+            observed by {observer} on {date} at {time} in {county}
+            {country === "CA" ? "" : " County"}, {state}.
           </h5>
-          <a href={props.link} target="_blank">
+          <a href={link} target="_blank">
             Learn more about this species
           </a>
-          {/* <div className="birdImg">
-            <img src={props.img} />
-          </div> */}
-        </div>{" "}
+        </div>
       </div>
+
+      {/* </div> */}
     </>
   );
 };

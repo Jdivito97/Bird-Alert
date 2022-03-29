@@ -3,6 +3,7 @@ import axios from "axios";
 import { RegionContext } from "../../contexts/region.context";
 import BirdCard from "../../components/BirdCard/BirdCard";
 import "./LandingPage.css";
+import "../../components/BirdCard/BirdCard.css";
 
 function LandingPage() {
   const [species, setSpecies] = useState({});
@@ -60,24 +61,24 @@ function LandingPage() {
       */}
         {species.length > 0 ? (
           <>
-            {uniqueBirds.map((bird) => (
-              <BirdCard
-                uniqueBirds={uniqueBirds}
-                comName={bird.comName}
-                sciName={bird.sciName}
-                quantity={bird.howMany}
-                observer={`${bird.firstName} ${bird.lastName}`}
-                date={bird.date}
-                time={bird.time}
-                country={bird.countryCode}
-                county={bird.subnational2Name}
-                state={bird.subnational1Name}
-                link={`https://ebird.org/species/${bird.speciesCode}`}
-                img={
-                  "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/234780531/"
-                }
-              />
-            ))}
+            <div className="Container">
+              {uniqueBirds.map((bird) => (
+                <BirdCard
+                  uniqueBirds={uniqueBirds}
+                  comName={bird.comName}
+                  sciName={bird.sciName}
+                  quantity={bird.howMany}
+                  observer={`${bird.firstName} ${bird.lastName}`}
+                  date={bird.date}
+                  time={bird.time}
+                  country={bird.countryCode}
+                  county={bird.subnational2Name}
+                  state={bird.subnational1Name}
+                  link={`https://ebird.org/species/${bird.speciesCode}`}
+                  image={`https://cdn.download.ams.birds.cornell.edu/api/v1/asset/427265371/1800`}
+                />
+              ))}
+            </div>
           </>
         ) : (
           <div className="greetingCard">
