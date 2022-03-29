@@ -7,6 +7,7 @@ import "../../components/BirdCard/BirdCard.css";
 
 function LandingPage() {
   const [species, setSpecies] = useState({});
+  const [birdPic, setbirdPic] = useState([]);
   const { region } = useContext(RegionContext);
 
   useEffect(() => {
@@ -35,7 +36,6 @@ function LandingPage() {
         .values(),
     ];
     uniqueBirds.length = 3;
-    console.log("removed duplicates", uniqueBirds);
     let splice = () => {
       uniqueBirds.map((bird) => {
         let time = bird.obsDt.split(" ");
@@ -47,8 +47,42 @@ function LandingPage() {
     };
     splice();
   }
-
   console.log("uniquebirds", uniqueBirds);
+
+  useEffect(async () => {
+    const imgAPICall = uniqueBirds.map((bird) => {
+      setTimeout(() => {
+        const getBirdPic = {
+          method: "GET",
+          url: "https://google-search55.p.rapidapi.com/image",
+          params: { q: `${bird.sciName} ebird`, safe: "false" },
+          headers: {
+            "X-RapidAPI-Host": "google-search55.p.rapidapi.com",
+            "X-RapidAPI-Key":
+              "e03463902dmsh15badedcf7458bdp1ca947jsnd7fbe817c516",
+          },
+        };
+
+        axios
+          .request(getBirdPic)
+          .then(function (response) {
+            console.log(response.data);
+            let imageObject = response.data;
+            setbirdPic((birdPic) => [birdPic, imageObject]);
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+      }, 1100);
+    });
+
+    await imgAPICall();
+
+    // const results = await Promise.all(imgAPICall);
+  }, [region]);
+
+  console.log("bird pic array", birdPic);
+
   return (
     <>
       <div>

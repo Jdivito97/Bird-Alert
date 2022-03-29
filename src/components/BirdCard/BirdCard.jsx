@@ -1,6 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { RegionContext } from "../../contexts/region.context";
+import React from "react";
 import "./BirdCard.css";
 
 const BirdCard = (uniqueBird) => {
@@ -17,10 +15,8 @@ const BirdCard = (uniqueBird) => {
     link,
     image,
   } = uniqueBird;
-  console.log("image link", { image });
   return (
     <>
-      {/* <div className="Container"> */}
       <div>
         <div className="birdImg">
           <img src={image} alt="above species"></img>
@@ -42,8 +38,6 @@ const BirdCard = (uniqueBird) => {
           </a>
         </div>
       </div>
-
-      {/* </div> */}
     </>
   );
 };

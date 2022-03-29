@@ -12,7 +12,7 @@
   flex-direction: row;
   justify-content: center;
   background: #ecefd8;
-  height: 400px;
+  height: 375px;
   width: 430px;
   margin: 10px;
   padding: 10px;
@@ -22,13 +22,11 @@
 }
 .birdImg img {
   border-radius: 7px;
-  height: 395px;
-  width: 425px;
+  height: 100%;
+  width: 100%;
   margin: 0;
   top: 50%;
   left: 50%;
-  /* -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); */
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
