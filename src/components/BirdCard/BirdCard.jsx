@@ -19,7 +19,7 @@ const BirdCard = (uniqueBird) => {
     <>
       <div>
         <div className="birdImg">
-          <img src={image} alt="above species"></img>
+          <img src={image} alt={comName}></img>
         </div>
         <div className="birdCard">
           <h1>

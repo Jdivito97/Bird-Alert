@@ -49,37 +49,54 @@ function LandingPage() {
   }
   console.log("uniquebirds", uniqueBirds);
 
-  useEffect(async () => {
-    const imgAPICall = uniqueBirds.map((bird) => {
-      setTimeout(() => {
-        const getBirdPic = {
-          method: "GET",
-          url: "https://google-search55.p.rapidapi.com/image",
-          params: { q: `${bird.sciName} ebird`, safe: "false" },
-          headers: {
-            "X-RapidAPI-Host": "google-search55.p.rapidapi.com",
-            "X-RapidAPI-Key":
-              "e03463902dmsh15badedcf7458bdp1ca947jsnd7fbe817c516",
-          },
-        };
+  useEffect(
+    (async) => {
+      if (uniqueBirds !== null) {
+        setbirdPic([]);
 
-        axios
-          .request(getBirdPic)
-          .then(function (response) {
-            console.log(response.data);
-            let imageObject = response.data;
-            setbirdPic((birdPic) => [birdPic, imageObject]);
-          })
-          .catch(function (error) {
-            console.error(error);
-          });
-      }, 1100);
-    });
+        uniqueBirds.map((bird, index) => {
+          let time = 700 * index;
 
-    await imgAPICall();
+          setTimeout(async () => {
+            const getBirdPic = {
+              method: "GET",
+              url: "https://google-search55.p.rapidapi.com/image",
+              params: { q: ` ${bird.sciName} inurl:cornell`, safe: "false" },
+              headers: {
+                "X-RapidAPI-Host": "google-search55.p.rapidapi.com",
+                "X-RapidAPI-Key":
+                  "e03463902dmsh15badedcf7458bdp1ca947jsnd7fbe817c516",
+              },
+            };
 
-    // const results = await Promise.all(imgAPICall);
-  }, [region]);
+            axios
+              .request(await getBirdPic)
+              .then(function (response) {
+                console.log(response.data);
+
+                let array = [];
+                array = response.data.images.filter((bird) =>
+                  bird.url.includes("cdn.download")
+                );
+
+                if (array.length === 0) {
+                  let jpgArray = response.data.images.filter((bird) =>
+                    bird.url.endsWith("jpg")
+                  );
+                  setbirdPic((birdPic) => [...birdPic, jpgArray]);
+                } else {
+                  setbirdPic((birdPic) => [...birdPic, array]);
+                }
+              })
+              .catch(function (error) {
+                console.error(error);
+              });
+          }, time);
+        });
+      }
+    },
+    [species]
+  );
 
   console.log("bird pic array", birdPic);
 
@@ -93,10 +110,10 @@ function LandingPage() {
         TODO: uniqueBirds.map((uniqueBird)=> <BirdCard name={uniqueBird.name} description={uniqueBird.description} img={}/>)
       
       */}
-        {species.length > 0 ? (
+        {species.length > 0 && birdPic.length === 3 ? (
           <>
             <div className="Container">
-              {uniqueBirds.map((bird) => (
+              {uniqueBirds.map((bird, index) => (
                 <BirdCard
                   uniqueBirds={uniqueBirds}
                   comName={bird.comName}
@@ -109,7 +126,7 @@ function LandingPage() {
                   county={bird.subnational2Name}
                   state={bird.subnational1Name}
                   link={`https://ebird.org/species/${bird.speciesCode}`}
-                  image={`https://cdn.download.ams.birds.cornell.edu/api/v1/asset/427265371/1800`}
+                  image={birdPic[index][0].url}
                 />
               ))}
             </div>
