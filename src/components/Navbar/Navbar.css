@@ -41,7 +41,6 @@
 /* Icon Button */
 .icon-button {
   position: relative;
-  top: 5px;
   --button-size: calc(var(--nav-size) * 0.5);
   width: var(--button-size);
   height: var(--button-size);

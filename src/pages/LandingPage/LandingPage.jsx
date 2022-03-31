@@ -8,6 +8,7 @@ import "../../components/BirdCard/BirdCard.css";
 function LandingPage() {
   const [species, setSpecies] = useState({});
   const [birdPic, setbirdPic] = useState([]);
+  const [imgArray, setImgArray] = useState([]);
   const { region } = useContext(RegionContext);
 
   useEffect(() => {
@@ -20,14 +21,14 @@ function LandingPage() {
     axios(birdData)
       .then(function (response) {
         setSpecies(response.data);
-        console.log("species data", species);
+        // console.log("species data", species);
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
       });
   }, [region]);
 
-  // console.log("Returned Region", region);
+  console.log("Returned Region", region);
   let uniqueBirds = null;
   if (species.length > 0) {
     uniqueBirds = [
@@ -49,56 +50,26 @@ function LandingPage() {
   }
   console.log("uniquebirds", uniqueBirds);
 
-  useEffect(
-    (async) => {
-      if (uniqueBirds !== null) {
-        setbirdPic([]);
+  useEffect(async () => {
+    if (uniqueBirds !== null) {
+      setbirdPic([]);
+      uniqueBirds.map((bird) => {
+        const url = `https://www.flickr.com/services/rest?method=flickr.photos.search&text=${bird.sciName}&format=json&nojsoncallback=1&api_key=ba8b5e447d4dfb260333412843c36f16&&media=photos&per_page=25`;
 
-        uniqueBirds.map((bird, index) => {
-          let time = 700 * index;
+        (async () => {
+          try {
+            const response = await axios.get(url);
+            setbirdPic(response.data.photos.photo);
+            console.log("birdPics", birdPic);
+          } catch (error) {
+            console.error(error);
+          }
+        })();
+      });
+    }
+  }, [species]);
 
-          setTimeout(async () => {
-            const getBirdPic = {
-              method: "GET",
-              url: "https://google-search55.p.rapidapi.com/image",
-              params: { q: ` ${bird.sciName} inurl:cornell`, safe: "false" },
-              headers: {
-                "X-RapidAPI-Host": "google-search55.p.rapidapi.com",
-                "X-RapidAPI-Key":
-                  "e03463902dmsh15badedcf7458bdp1ca947jsnd7fbe817c516",
-              },
-            };
-
-            axios
-              .request(await getBirdPic)
-              .then(function (response) {
-                console.log(response.data);
-
-                let array = [];
-                array = response.data.images.filter((bird) =>
-                  bird.url.includes("cdn.download")
-                );
-
-                if (array.length === 0) {
-                  let jpgArray = response.data.images.filter((bird) =>
-                    bird.url.endsWith("jpg")
-                  );
-                  setbirdPic((birdPic) => [...birdPic, jpgArray]);
-                } else {
-                  setbirdPic((birdPic) => [...birdPic, array]);
-                }
-              })
-              .catch(function (error) {
-                console.error(error);
-              });
-          }, time);
-        });
-      }
-    },
-    [species]
-  );
-
-  console.log("bird pic array", birdPic);
+  // console.log("bird pic array", birdPic);
 
   return (
     <>
@@ -126,7 +97,7 @@ function LandingPage() {
                   county={bird.subnational2Name}
                   state={bird.subnational1Name}
                   link={`https://ebird.org/species/${bird.speciesCode}`}
-                  image={birdPic[index][0].url}
+                  image={`https://live.staticflickr.com/${birdPic.photo[0].server}/${birdPic.photo[0].id}_${birdPic.photo[0].secret}_c.jpg`}
                 />
               ))}
             </div>
@@ -137,6 +108,12 @@ function LandingPage() {
             <p>Select a region to see recent notable species observations</p>
           </div>
         )}
+        {/* {birdPic.length < 3 && species.length >= 1 ? (
+          <div className="greetingCard">
+            <h1>Retrieving birds...</h1>
+            <p>Ruffling feathers...</p>
+          </div>
+        ) : null} */}
       </div>
     </>
   );
