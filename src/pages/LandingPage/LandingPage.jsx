@@ -8,27 +8,28 @@ import "../../components/BirdCard/BirdCard.css";
 function LandingPage() {
   const [species, setSpecies] = useState({});
   const [birdPic, setbirdPic] = useState([]);
-  const [imgArray, setImgArray] = useState([]);
   const { region } = useContext(RegionContext);
 
   useEffect(() => {
-    let birdData = {
-      method: "get",
-      url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full&maxResults=50`,
-      headers: { "X-eBirdApiToken": "uakosadgnlqk" },
-    };
+    (async () => {
+      let birdData = {
+        method: "get",
+        url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full&maxResults=50`,
+        headers: { "X-eBirdApiToken": "uakosadgnlqk" },
+      };
 
-    axios(birdData)
-      .then(function (response) {
-        setSpecies(response.data);
-        // console.log("species data", species);
-      })
-      .catch(function (error) {
-        // console.log(error);
-      });
+      axios(birdData)
+        .then(function (response) {
+          setSpecies(response.data);
+        })
+        .catch(function (error) {
+          // console.log(error);
+        });
+    })();
   }, [region]);
 
-  console.log("Returned Region", region);
+  console.log("species data", species);
+
   let uniqueBirds = null;
   if (species.length > 0) {
     uniqueBirds = [
@@ -37,30 +38,24 @@ function LandingPage() {
         .values(),
     ];
     uniqueBirds.length = 3;
-    let splice = () => {
-      uniqueBirds.map((bird) => {
-        let time = bird.obsDt.split(" ");
-        bird.date = time[0];
-        bird.time = time[1];
-        //   console.log("time", time);
-        //   console.log("bird", bird);
-      });
-    };
-    splice();
+    uniqueBirds.map((bird) => {
+      let time = bird.obsDt.split(" ");
+      bird.date = time[0];
+      bird.time = time[1];
+    });
   }
   console.log("uniquebirds", uniqueBirds);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (uniqueBirds !== null) {
       setbirdPic([]);
-      uniqueBirds.map((bird) => {
-        const url = `https://www.flickr.com/services/rest?method=flickr.photos.search&text=${bird.sciName}&format=json&nojsoncallback=1&api_key=ba8b5e447d4dfb260333412843c36f16&&media=photos&per_page=25`;
+      uniqueBirds.map((bird, index) => {
+        const url = `https://www.flickr.com/services/rest?method=flickr.photos.search&text=${bird.sciName}&format=json&nojsoncallback=1&api_key=ba8b5e447d4dfb260333412843c36f16&&media=photos&per_page=15`;
 
         (async () => {
           try {
             const response = await axios.get(url);
-            setbirdPic(response.data.photos.photo);
-            console.log("birdPics", birdPic);
+            setbirdPic((birdPic) => [...birdPic, response.data.photos.photo]);
           } catch (error) {
             console.error(error);
           }
@@ -69,7 +64,7 @@ function LandingPage() {
     }
   }, [species]);
 
-  // console.log("bird pic array", birdPic);
+  console.log("birdPic", birdPic);
 
   return (
     <>
@@ -97,7 +92,7 @@ function LandingPage() {
                   county={bird.subnational2Name}
                   state={bird.subnational1Name}
                   link={`https://ebird.org/species/${bird.speciesCode}`}
-                  image={`https://live.staticflickr.com/${birdPic.photo[0].server}/${birdPic.photo[0].id}_${birdPic.photo[0].secret}_c.jpg`}
+                  image={`https://live.staticflickr.com/${birdPic[index][2].server}/${birdPic[index][2].id}_${birdPic[index][2].secret}_c.jpg`}
                 />
               ))}
             </div>
