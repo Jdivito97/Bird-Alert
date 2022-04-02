@@ -7,7 +7,7 @@ import DropdownMenu from "./components/DropdownMenu/DropdownMenu";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import { RegionContext } from "./contexts/region.context";
 
-function App(props) {
+function App() {
   const [region, setRegion] = useState("");
   return (
     <div className="App">

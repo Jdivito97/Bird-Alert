@@ -29,8 +29,8 @@ const BirdCard = (uniqueBird) => {
             <em>{sciName}</em>
           </p>
           <h5>
-            {quantity} {quantity > 1 ? "individuals were" : "individual was"}{" "}
-            observed by {observer} on {date} at {time} in {county}
+            {quantity} {quantity > 1 ? "individuals were" : "individual was"} on{" "}
+            {date} at {time} in {county}
             {country === "CA" ? "" : " County"}, {state}.
           </h5>
           <a href={link} target="_blank">

@@ -5,10 +5,6 @@ import "./DropdownMenu.css";
 function DropdownItem(props) {
   const { region, setRegion } = useContext(RegionContext);
 
-  let GrabValue = (e) => {
-    setRegion(props.value);
-  };
-
   useEffect(() => {}, [region]);
 
   let ExecuteAnimation = () =>
@@ -18,7 +14,8 @@ function DropdownItem(props) {
     <div
       className={"menu-item"}
       onClick={(e) => {
-        GrabValue();
+        console.log("props.value", props.value);
+        if (props.value) setRegion(props.value);
         ExecuteAnimation();
       }}
     >

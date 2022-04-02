@@ -28,3 +28,32 @@
   color: #535a3b;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
+
+.loadingCard {
+  position: relative;
+  font-weight: 100;
+  right: 300px;
+  background: #ecefd8;
+  height: 100px;
+  width: 300px;
+  margin: 30px auto 10px auto;
+  padding: 10px;
+  border-radius: 7px;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.loadingCard h1 {
+  font-weight: 200;
+  color: #535a3b;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.loadingCard p {
+  position: relative;
+  bottom: 20px;
+  font-weight: 200;
+  font-size: 1rem;
+  color: #535a3b;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}

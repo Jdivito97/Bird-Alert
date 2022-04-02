@@ -45,7 +45,6 @@ function DropdownMenu() {
             leftIcon={<VscStarFull />}
             rightIcon={<ChevronRightIcon />}
             goToMenu="USA"
-            value=""
             title="United States"
             setActiveMenu={setActiveMenu}
           />
@@ -53,7 +52,6 @@ function DropdownMenu() {
             className="Canada"
             leftIcon={<FaCanadianMapleLeaf />}
             rightIcon={<ChevronRightIcon />}
-            value=""
             goToMenu="CND"
             title="Canada"
             setActiveMenu={setActiveMenu}
@@ -73,7 +71,6 @@ function DropdownMenu() {
             goToMenu="main"
             leftIcon={<KeyboardDoubleArrowLeftIcon />}
             title="Go back"
-            value=""
             setActiveMenu={setActiveMenu}
           ></DropdownItem>
           {America.map((obj) => (
@@ -99,7 +96,6 @@ function DropdownMenu() {
             goToMenu="main"
             leftIcon={<KeyboardDoubleArrowLeftIcon />}
             title="Go back"
-            value=""
             setActiveMenu={setActiveMenu}
           ></DropdownItem>
           {Canada.map((obj) => (
