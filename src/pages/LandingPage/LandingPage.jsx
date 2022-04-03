@@ -17,7 +17,7 @@ function LandingPage() {
     (async () => {
       let birdData = {
         method: "get",
-        url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full&maxResults=50`,
+        url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full`,
         headers: { "X-eBirdApiToken": "uakosadgnlqk" },
       };
       setLoading(true);
@@ -40,7 +40,7 @@ function LandingPage() {
         .reduce((map, bird) => map.set(bird.comName, bird), new Map())
         .values(),
     ];
-    uniqueBirds.length = 12;
+
     uniqueBirds.map((bird) => {
       let time = bird.obsDt.split(" ");
       bird.date = time[0];
@@ -70,6 +70,7 @@ function LandingPage() {
       setLoading(false);
     }
   }, [species]);
+  console.log("birdpic", birdPic);
 
   return (
     <>
@@ -85,6 +86,7 @@ function LandingPage() {
               <div className="Container">
                 {birdPic.map((bird, index) => {
                   console.log({ bird });
+                  if (bird[2].length === 0) return null;
                   return (
                     <BirdCard
                       key={index}
@@ -107,9 +109,11 @@ function LandingPage() {
             </>
           )
         ) : (
-          <div className="greetingCard">
-            <h1>Welcome to Bird-Alert</h1>
-            <p>Select a region to see recent notable species observations</p>
+          <div className="Container">
+            <div className="greetingCard">
+              <h1>Welcome to Bird-Alert</h1>
+              <p>Select a region to see recent notable species observations</p>
+            </div>
           </div>
         )}
         {/* {(region === true) & (birdPic.length < 3) ? (

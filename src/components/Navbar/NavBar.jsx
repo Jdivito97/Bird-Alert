@@ -6,7 +6,7 @@ function Navbar(props) {
     <header>
       <nav className="navbar">
         <ul className="navbar-nav">
-          <h1>Bird-Alert</h1>
+          <h1 className="header">Bird-Alert</h1>
           {props.children}
         </ul>
       </nav>

@@ -1,12 +1,3 @@
-.Container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  justify-content: center;
-  align-content: flex-start;
-}
-
 .birdImg {
   display: flex;
   flex-direction: row;
@@ -31,8 +22,9 @@
 }
 
 .birdCard {
+  display: block;
   font-weight: 600;
-
+  text-overflow: ellipsis !important;
   color: #535a3b;
   top: 10px;
   background: #ecefd8;

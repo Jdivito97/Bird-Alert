@@ -1,24 +1,23 @@
 /* Dropdown Menu */
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 6px;
   height: 280px;
 }
 
 ::-webkit-scrollbar-track-piece {
   background-color: #cedcc3;
   height: auto;
-  border-radius: 25%;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #eff7d3;
-  border-radius: 15%;
+  background-color: #646464;
+
   height: 280px;
-  border-style: ridge;
-  outline: 2px solid #eff7d3;
+
+  outline: 2px solid #646464;
   outline-offset: -2px;
-  border: 0.7px solid #eff7d3;
+  border: 0.7px solid #646464;
 }
 
 ::-webkit-scrollbar-thumb:hover {

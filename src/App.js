@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LandingPage from "./pages/LandingPage/LandingPage";
+import Footer from "./Footer";
 import "./App.css";
 import Navbar from "./components/Navbar/NavBar";
 import NavItem from "./components/Navbar/NavItem";
@@ -18,6 +19,7 @@ function App() {
           </NavItem>
         </Navbar>
         <LandingPage />
+        <Footer />
       </RegionContext.Provider>
     </div>
   );

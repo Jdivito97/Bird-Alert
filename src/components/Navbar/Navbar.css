@@ -1,5 +1,13 @@
 /* Top Navigation Bar */
-
+:root {
+  --bg: #242526;
+  --bg-accent: #484a4d;
+  --text-color: #dadce1;
+  --nav-size: 60px;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
 /* <nav> */
 .navbar {
   height: var(--nav-size);
@@ -63,4 +71,6 @@
   fill: #535a3b;
   width: 20px;
   height: 20px;
+}
+.header {
 }

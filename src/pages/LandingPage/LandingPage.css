@@ -1,7 +1,25 @@
 /* Card styles */
-
+:root {
+  --bg: #242526;
+  --bg-accent: #484a4d;
+  --text-color: #dadce1;
+  --nav-size: 60px;
+  --border: 1px solid #474a4d;
+  --border-radius: 8px;
+  --speed: 500ms;
+}
+.Container {
+  display: flex;
+  overflow-y: scroll !important;
+  max-height: 100vh;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  justify-content: center;
+  align-content: flex-start;
+}
 .greetingCard {
-  position: relative;
+  flex-wrap: wrap;
   font-weight: 100;
   right: 300px;
   background: #ecefd8;
