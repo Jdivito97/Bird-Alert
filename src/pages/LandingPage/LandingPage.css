@@ -111,3 +111,27 @@
     width: 26em;
   }
 }
+@media (max-width: 500px) {
+  .greetingCard {
+    height: 130px;
+    width: 24em;
+  }
+}
+@media (max-width: 450px) {
+  .greetingCard {
+    height: 130px;
+    width: 22em;
+  }
+}
+@media (max-width: 375px) {
+  .greetingCard {
+    height: 130px;
+    width: 20em;
+  }
+}
+@media (max-width: 350px) {
+  .greetingCard {
+    height: 165px;
+    width: 18em;
+  }
+}
