@@ -19,7 +19,7 @@ function DropdownItem(props) {
         ExecuteAnimation();
       }}
     >
-      <span className="icon-button">{props.leftIcon}</span>
+      <span className="icon-left">{props.leftIcon}</span>
       {props.title}
       <span className="icon-right">{props.rightIcon}</span>
     </div>

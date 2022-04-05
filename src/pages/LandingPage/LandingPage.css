@@ -8,9 +8,10 @@
   --border-radius: 8px;
   --speed: 500ms;
 }
+
 .Container {
   display: flex;
-  overflow-y: scroll !important;
+  overflow-y: scroll;
   max-height: 100vh;
   flex-direction: row;
   flex-wrap: wrap;
@@ -19,12 +20,14 @@
   align-content: flex-start;
 }
 .greetingCard {
+  overflow: hidden !important;
   flex-wrap: wrap;
+  overflow-y: hidden;
   font-weight: 100;
   right: 300px;
   background: #ecefd8;
-  height: 100px;
-  width: 450px;
+  min-height: 100px;
+  width: 29em;
   margin: 30px auto 10px auto;
   padding: 10px;
   border-radius: 7px;
@@ -74,4 +77,37 @@
   font-size: 1rem;
   color: #535a3b;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.menuNav {
+  overflow: hidden !important;
+  flex-wrap: wrap;
+  overflow-y: hidden;
+  font-weight: 100;
+  right: 300px;
+  background: #ecefd8;
+  min-height: 30px;
+  width: 300px;
+  margin: 30px auto 10px auto;
+  padding: 5px;
+  border-radius: 7px;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* media responsive failsafe */
+
+@media (max-width: 600px) {
+  .greetingCard {
+    flex: 100%;
+    max-width: 100%;
+    min-height: 130px;
+    width: 29em;
+  }
+}
+@media (max-width: 530px) {
+  .greetingCard {
+    height: 130px;
+    width: 26em;
+  }
 }

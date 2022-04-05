@@ -5,6 +5,10 @@ import { RegionContext } from "../../contexts/region.context";
 import BirdCard from "../../components/BirdCard/BirdCard";
 import "./LandingPage.css";
 import "../../components/BirdCard/BirdCard.css";
+import NavItem from "../../components/Navbar/NavItem";
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+import HomeSearchBar from "../../components/HomeSearchBar/HomeSearchBar";
+import HomeDropdown from "../../components/HomeDropdown/HomeDropdown";
 
 function LandingPage() {
   const [species, setSpecies] = useState({});
@@ -70,8 +74,8 @@ function LandingPage() {
       setLoading(false);
     }
   }, [species]);
-  console.log("birdpic", birdPic);
 
+  console.log("birdpic", birdPic);
   return (
     <>
       <div>
@@ -109,12 +113,19 @@ function LandingPage() {
             </>
           )
         ) : (
-          <div className="Container">
+          <>
             <div className="greetingCard">
               <h1>Welcome to Bird-Alert</h1>
               <p>Select a region to see recent notable species observations</p>
             </div>
-          </div>
+            <div className="menuNav">
+              <HomeSearchBar>
+                <NavItem icon={<TravelExploreIcon />}>
+                  <HomeDropdown />
+                </NavItem>
+              </HomeSearchBar>
+            </div>
+          </>
         )}
         {/* {(region === true) & (birdPic.length < 3) ? (
           <div className="loadingCard">

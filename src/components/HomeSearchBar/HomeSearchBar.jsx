@@ -1,20 +1,19 @@
 import React from "react";
-import "./Navbar.css";
+import "./HomeSearchBar.css";
 
-function Navbar(props) {
+function HomeSearchBar(props) {
   return (
     <header>
-      <nav className="navbar">
-        <ul className="navbar-nav">
+      <nav className="Homebar">
+        <ul className="Homebar-nav">
           <h1 className="prompt">
             <strong>Select region </strong>
           </h1>
           {props.children}
         </ul>
-        <h1 className="header">Bird-Alert</h1>
       </nav>
     </header>
   );
 }
 
-export default Navbar;
+export default HomeSearchBar;

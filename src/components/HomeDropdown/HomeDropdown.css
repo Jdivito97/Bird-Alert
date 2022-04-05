@@ -1,12 +1,13 @@
-/*Dropdown Menu */
+/* Dropdown Menu */
 
-.dropdown {
+.homedropdown {
+  align-content: center;
   position: absolute;
-  height: 300px;
+  max-height: 200px;
   overflow-y: scroll !important;
-  top: 58px;
-  width: 300px;
-  transform: translateX(-45%);
+  top: 339px;
+  width: 270px;
+  transform: translateX(-17%);
   background-color: #849561;
   background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
   border: var(--border);

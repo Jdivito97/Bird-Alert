@@ -23,7 +23,11 @@ const BirdCard = (uniqueBird) => {
         </div>
         <div className="birdCard">
           <h1>
-            <strong>{comName}</strong>
+            <strong>
+              <a href={link} target="_blank">
+                {comName}
+              </a>
+            </strong>
           </h1>
           <p>
             <em>{sciName}</em>
@@ -33,9 +37,6 @@ const BirdCard = (uniqueBird) => {
             observed on {date} at {time} in {county}
             {country === "CA" ? "" : " County"}, {state}.
           </h5>
-          <a href={link} target="_blank">
-            Learn more about this species
-          </a>
         </div>
       </div>
     </>

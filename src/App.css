@@ -1,6 +1,6 @@
 body {
   margin: 0;
-
+  overflow-y: hidden;
   max-height: 100vh;
   background: #eff7d3;
   background-image: url(./Img/IMG_0528.JPG);
@@ -39,5 +39,25 @@ footer {
   position: sticky;
   color: whitesmoke;
   position: relative;
-  top: 550px;
+  top: 32em;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #cedcc3;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #646464;
+  height: 280px;
+  outline: 2px solid #646464;
+  outline-offset: -2px;
+  border: 0.7px solid #646464;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #eff7d3;
 }

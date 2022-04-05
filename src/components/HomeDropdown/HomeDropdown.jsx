@@ -7,10 +7,10 @@ import { FaCanadianMapleLeaf } from "react-icons/fa";
 import { VscStarFull } from "react-icons/vsc";
 import America from "../../RegionComponents/America";
 import Canada from "../../RegionComponents/Canada";
-import DropdownItem from "./DropdownItem";
-import "./DropdownMenu.css";
+import DropdownItem from "../DropdownMenu/DropdownItem";
+import "./HomeDropdown.css";
 
-function DropdownMenu() {
+function HomeDropdown() {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
 
@@ -26,7 +26,11 @@ function DropdownMenu() {
   }
 
   return (
-    <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
+    <div
+      className="homedropdown"
+      style={{ height: menuHeight }}
+      ref={dropdownRef}
+    >
       <CSSTransition
         in={activeMenu === "main"}
         timeout={500}
@@ -106,4 +110,4 @@ function DropdownMenu() {
   );
 }
 
-export default DropdownMenu;
+export default HomeDropdown;

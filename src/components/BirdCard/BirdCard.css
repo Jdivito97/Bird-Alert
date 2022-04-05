@@ -1,10 +1,7 @@
 .birdImg {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
   background: #ecefd8;
   height: 380px;
-  width: 430px;
+  width: 35em;
   margin: 10px;
   padding: 10px;
   border-radius: 7px;
@@ -22,14 +19,14 @@
 }
 
 .birdCard {
-  display: block;
+  display: flexbox;
   font-weight: 600;
   text-overflow: ellipsis !important;
   color: #535a3b;
   top: 10px;
   background: #ecefd8;
   min-height: 130px;
-  width: 430px;
+  width: 35em;
   margin: 10px;
   padding: 10px;
   border-radius: 7px;
@@ -60,14 +57,63 @@
 }
 
 .birdCard a {
-  position: relative;
   text-decoration: underline;
-  font-size: 0.7rem;
-  left: 290px;
-  font-weight: 700;
-  color: #535a3b;
 }
 
 .birdCard a:hover {
   color: #4d96ff;
+}
+
+/* mobile responsive failsafe */
+
+@media (max-width: 600px) {
+  .birdCard {
+    max-width: 100%;
+    min-height: 130px;
+    width: 30em;
+  }
+  .birdImg {
+    max-width: 100%;
+    width: 30em;
+  }
+}
+@media (max-width: 530px) {
+  .birdCard {
+    height: 100px;
+    width: 26em;
+  }
+  .birdImg {
+    width: 26em;
+    height: 330px;
+  }
+}
+@media (max-width: 460px) {
+  .birdCard {
+    width: 22em;
+  }
+  .birdImg {
+    width: 22em;
+    height: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .birdCard {
+    width: 20em;
+  }
+  .birdImg {
+    width: 20em;
+    height: 270px;
+  }
+}
+
+@media (max-width: 360px) {
+  .birdCard {
+    height: 80px;
+    width: 18em;
+  }
+  .birdImg {
+    width: 18em;
+    height: 230px;
+  }
 }
