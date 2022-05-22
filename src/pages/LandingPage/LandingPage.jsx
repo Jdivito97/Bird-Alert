@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import _ from "lodash";
-import { RegionContext } from "../../contexts/region.context";
-import BirdCard from "../../components/BirdCard/BirdCard";
-import "./LandingPage.css";
-import "../../components/BirdCard/BirdCard.css";
-import NavItem from "../../components/Navbar/NavItem";
-import TravelExploreIcon from "@mui/icons-material/TravelExplore";
-import HomeSearchBar from "../../components/HomeSearchBar/HomeSearchBar";
-import HomeDropdown from "../../components/HomeDropdown/HomeDropdown";
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import { RegionContext } from '../../contexts/region.context';
+import BirdCard from '../../components/BirdCard/BirdCard';
+import './LandingPage.css';
+import '../../components/BirdCard/BirdCard.css';
+import NavItem from '../../components/Navbar/NavItem';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import HomeSearchBar from '../../components/HomeSearchBar/HomeSearchBar';
+import HomeDropdown from '../../components/HomeDropdown/HomeDropdown';
+import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
 
 function LandingPage() {
   const [species, setSpecies] = useState({});
@@ -20,9 +20,9 @@ function LandingPage() {
   useEffect(() => {
     (async () => {
       let birdData = {
-        method: "get",
+        method: 'get',
         url: `https://api.ebird.org/v2/data/obs/${region}/recent/notable?detail=full`,
-        headers: { "X-eBirdApiToken": "uakosadgnlqk" },
+        headers: { 'X-eBirdApiToken': 'uakosadgnlqk' },
       };
       setLoading(true);
       axios(birdData)
@@ -46,7 +46,7 @@ function LandingPage() {
     ];
 
     uniqueBirds.map((bird) => {
-      let time = bird.obsDt.split(" ");
+      let time = bird.obsDt.split(' ');
       bird.date = time[0];
       bird.time = time[1];
     });
@@ -75,19 +75,19 @@ function LandingPage() {
     }
   }, [species]);
 
-  console.log("birdpic", birdPic);
+  console.log('birdpic', birdPic);
   return (
     <>
       <div>
         {region ? (
           loading ? (
-            <div className="loadingCard">
+            <div className='loadingCard'>
               <h1>Retrieving birds...</h1>
               <p>Ruffling feathers...</p>
             </div>
           ) : (
             <>
-              <div className="Container">
+              <div className='Container'>
                 {birdPic.map((bird, index) => {
                   console.log({ bird });
                   if (bird[2].length === 0) return null;
@@ -114,11 +114,11 @@ function LandingPage() {
           )
         ) : (
           <>
-            <div className="greetingCard">
+            <div className='greetingCard'>
               <h1>Welcome to Bird-Alert</h1>
               <p>Select a region to see recent notable species observations</p>
             </div>
-            <div className="menuNav">
+            <div className='menuNav'>
               <HomeSearchBar>
                 <NavItem icon={<TravelExploreIcon />}>
                   <HomeDropdown />

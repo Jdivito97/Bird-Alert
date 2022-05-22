@@ -4,13 +4,13 @@ body {
   max-height: 100vh;
   background: #eff7d3;
   background-image: url(./Img/IMG_0528.JPG);
-  font-family: "Hind", sans-serif;
+  font-family: 'Hind', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: "Hind", sans-serif;
+  font-family: 'Hind', sans-serif;
 }
 
 :root {
@@ -39,7 +39,7 @@ footer {
   position: sticky;
   color: whitesmoke;
   position: relative;
-  top: 32em;
+  top: 38em;
 }
 
 ::-webkit-scrollbar {
@@ -48,14 +48,16 @@ footer {
 
 ::-webkit-scrollbar-track-piece {
   background-color: #cedcc3;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #646464;
-  height: 280px;
+  height: 30%;
   outline: 2px solid #646464;
   outline-offset: -2px;
   border: 0.7px solid #646464;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

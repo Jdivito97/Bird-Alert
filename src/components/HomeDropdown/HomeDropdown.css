@@ -3,15 +3,15 @@
 .homedropdown {
   align-content: center;
   position: absolute;
-  max-height: 200px;
+  max-height: 40vh;
   overflow-y: scroll !important;
   top: 339px;
   width: 270px;
   transform: translateX(-17%);
   background-color: #849561;
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
   border: var(--border);
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 8px;
   padding: 1rem;
   overflow: hidden;
   transition: height var(--speed) ease;
@@ -57,7 +57,7 @@
   width: var(--button-size);
   height: var(--button-size);
   background-color: #849561;
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
   border-radius: 50%;
   padding: 5px;
   margin: 2px;

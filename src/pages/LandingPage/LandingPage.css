@@ -12,7 +12,7 @@
 .Container {
   display: flex;
   overflow-y: scroll;
-  max-height: 100vh;
+  max-height: 90vh;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -31,18 +31,20 @@
   margin: 30px auto 10px auto;
   padding: 10px;
   border-radius: 7px;
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
 
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .greetingCard h1 {
   font-weight: 200;
+  text-align: center;
   color: #535a3b;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 .greetingCard p {
   position: relative;
+  text-align: center;
   bottom: 20px;
   font-weight: 200;
   font-size: 1rem;
@@ -64,7 +66,7 @@
   margin: 30px auto 10px auto;
   padding: 10px;
   border-radius: 7px;
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
 
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
@@ -94,8 +96,7 @@
   margin: 30px auto 10px auto;
   padding: 5px;
   border-radius: 7px;
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
-
+  background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 

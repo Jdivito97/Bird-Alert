@@ -12,7 +12,7 @@
   height: var(--nav-size);
   justify-content: center;
   border-radius: 8px;
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
   background-color: #849561;
   padding: 0 1rem;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
@@ -55,7 +55,7 @@
   width: var(--button-size);
   height: var(--button-size);
   background-color: #ecefd8;
-  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
   border-radius: 50%;
   padding: 5px;
   margin: 2px;
