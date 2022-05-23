@@ -34,7 +34,7 @@ const BirdCard = (uniqueBird) => {
           <h5>
             {quantity} {quantity > 1 ? 'individuals were' : 'individual was'}{' '}
             observed on {date} at {time} in {county}
-            {country === 'CA' || 'MX' ? '' : ' County'}, {state}.
+            {country === 'US' ? ' County' : ''}, {state}.
           </h5>
         </div>
       </div>
