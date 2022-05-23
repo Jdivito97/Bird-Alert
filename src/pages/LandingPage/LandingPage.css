@@ -12,12 +12,13 @@
 .Container {
   display: flex;
   overflow-y: scroll;
-  max-height: 90vh;
+  max-height: 93vh;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   justify-content: center;
   align-content: flex-start;
+  padding-bottom: 220px;
 }
 .greetingCard {
   overflow: hidden !important;

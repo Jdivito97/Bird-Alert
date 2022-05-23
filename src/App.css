@@ -1,7 +1,6 @@
 body {
   margin: 0;
   overflow-y: hidden;
-  max-height: 100vh;
   background: #eff7d3;
   background-image: url(./Img/IMG_0528.JPG);
   font-family: 'Hind', sans-serif;
@@ -39,7 +38,7 @@ footer {
   position: sticky;
   color: whitesmoke;
   position: relative;
-  top: 38em;
+  top: 50vh;
 }
 
 ::-webkit-scrollbar {
