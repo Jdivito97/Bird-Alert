@@ -61,13 +61,8 @@
 }
 .loadImg {
   position: absolute;
-  top: 20%;
-  margin: 0;
-  height: 200px;
-}
-.loadText {
-  position: absolute;
-  top: 40%;
+  top: 80px;
+  height: 250px;
 }
 
 .loadScreen h1 {
