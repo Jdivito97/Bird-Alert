@@ -8,8 +8,6 @@ import NavItem from '../../components/Navbar/NavItem';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import HomeSearchBar from '../../components/HomeSearchBar/HomeSearchBar';
 import HomeDropdown from '../../components/HomeDropdown/HomeDropdown';
-import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
-
 function LandingPage() {
   const [species, setSpecies] = useState({});
   const [birdPic, setbirdPic] = useState([]);
@@ -29,13 +27,9 @@ function LandingPage() {
         .then(function (response) {
           setSpecies(response.data);
         })
-        .catch(function (error) {
-          // console.log(error);
-        });
+        .catch(function (error) {});
     })();
   }, [region]);
-
-  // console.log("species data", species);
 
   let uniqueBirds = null;
   if (species.length > 0) {
@@ -81,15 +75,21 @@ function LandingPage() {
       <div>
         {region ? (
           loading ? (
-            <div className='loadingCard'>
-              <h1>Retrieving birds...</h1>
-              <p>Ruffling feathers...</p>
+            <div className='loadScreen'>
+              <img
+                src={require('../../Img/heron.gif')}
+                alt='loading'
+                className='loadImg'
+              />
+              <div className='loadText'>
+                <h1>Retrieving birds...</h1>
+                <p>Ruffling feathers...</p>
+              </div>
             </div>
           ) : (
             <>
               <div className='Container'>
                 {birdPic.map((bird, index) => {
-                  console.log({ bird });
                   if (bird[2].length === 0) return null;
                   return (
                     <BirdCard
@@ -127,12 +127,6 @@ function LandingPage() {
             </div>
           </>
         )}
-        {/* {(region === true) & (birdPic.length < 3) ? (
-          <div className="loadingCard">
-            <h1>Retrieving birds...</h1>
-            <p>Ruffling feathers...</p>
-          </div>
-        ) : null} */}
       </div>
     </>
   );

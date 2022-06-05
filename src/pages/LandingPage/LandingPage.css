@@ -48,42 +48,41 @@
   text-align: center;
   bottom: 20px;
   font-weight: 200;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #535a3b;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-.loadingCard {
+.loadScreen {
   display: flex;
-  flex-direction: row;
-  position: relative;
+  height: 50%;
   justify-content: space-around;
-  flex-wrap: wrap;
-  font-weight: 100;
-  right: 200px;
-  background: #ecefd8;
-  height: 100px;
-  width: 300px;
-  margin: 30px auto 10px auto;
-  padding: 10px;
-  border-radius: 7px;
-  background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
-
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+}
+.loadImg {
+  position: absolute;
+  top: 20%;
+  margin: 0;
+  height: 200px;
+}
+.loadText {
+  position: absolute;
+  top: 40%;
 }
 
-.loadingCard h1 {
+.loadScreen h1 {
+  margin: 0;
   font-weight: 200;
-  color: #535a3b;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  color: #ecefd8;
+  text-shadow: 1px 1px 1px #535a3b;
 }
-.loadingCard p {
+.loadScreen p {
   position: relative;
   bottom: 20px;
   font-weight: 200;
   font-size: 1rem;
-  color: #535a3b;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  color: #ecefd8;
+  text-shadow: 1px 1px 1px #535a3b;
 }
 .menuNav {
   overflow: hidden !important;
